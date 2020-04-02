@@ -6,13 +6,18 @@ const config = { }
 const math = create(all, config)
 
 export default class Point{
+
     constructor(x,y,z) {
         this.x=x;
         this.y=y;
         this.z=z;
+        this.x1=x;
+        this.y1=y;
+        this.z1 = z;
+        this.convertPointTo2d();
     }
 
-     convertPointTo2d = (display)=>{
+     convertPointTo2d = ()=>{
         const sinFi = Camera.orientation.map(value=>{
             return Math.sin(value);
         })
@@ -42,11 +47,11 @@ export default class Point{
         });
 
 
-        const Bx = pointPosition3D[0] * (display[1]/2) /pointPosition3D[2] * Camera.zoom + display[0]/2;
-        const By = pointPosition3D[1] * (display[1]/2) /pointPosition3D[2] * Camera.zoom  + display[1]/2;
-
-        return [Bx,By];
+        this.x1 = pointPosition3D[0] * (Camera.display[1]/2) /pointPosition3D[2] * Camera.zoom + Camera.display[0]/2;
+        this.y1 = pointPosition3D[1] * (Camera.display[1]/2) /pointPosition3D[2] * Camera.zoom  + Camera.display[1]/2;
+        this.z1 = pointPosition3D[2];
 
     }
+
 }
 

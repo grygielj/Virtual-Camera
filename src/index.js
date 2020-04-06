@@ -1,4 +1,4 @@
-import "./canvas.css";
+import "./index.css";
 import Camera from "./Camera";
 import cubes from "./Cubes"
 
@@ -24,7 +24,7 @@ const drawLine = (point1,point2)=>{
     ctx.beginPath();
     ctx.closePath();
 };
-const drawAllLines=(cube)=> {
+const drawCube=(cube)=> {
     drawLine(cube[0], cube[1]);
     drawLine(cube[0], cube[2]);
     drawLine(cube[0], cube[4]);
@@ -40,17 +40,72 @@ const drawAllLines=(cube)=> {
 };
 
 
-cubes.forEach(cube=>{
-    cube.forEach(point=>{
-        point.convertPointTo2d();
+const drawAllCubes = ()=>{
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    cubes.forEach(cube=>{
+        cube.forEach(point=>{
+            point.convertPointTo2d();
+        });
+        drawCube(cube);
     });
-    drawAllLines(cube);
+};
+
+drawAllCubes();
+
+
+//control
+window.addEventListener('keydown',(e)=>{
+    if(e.keyCode===38){
+        Camera.position[2]+=5;
+    }
+    if(e.keyCode===40){
+        Camera.position[2]-=5;
+    }
+    if(e.keyCode===39){
+        Camera.position[0]+=5;
+    }
+    if(e.keyCode===37){
+        Camera.position[0]-=5;
+    }
+    if(e.keyCode===33){
+        Camera.position[1]-=5;
+    }
+    if(e.keyCode===34){
+        Camera.position[1]+=5;
+    }
+    if(e.keyCode===87){
+        Camera.orientation[0]+=0.01;
+    }
+    if(e.keyCode===83){
+        Camera.orientation[0]-=0.01;
+    }
+    if(e.keyCode===68){
+        Camera.orientation[1]+=0.01;
+    }
+    if(e.keyCode===65){
+        Camera.orientation[1]-=0.01;
+    }
+    if(e.keyCode===88){
+        Camera.orientation[2]+=0.01;
+    }
+    if(e.keyCode===90){
+        Camera.orientation[2]-=0.01;
+    }
+
+    drawAllCubes();
 });
-ctx.stroke();
 
+const button = document.createElement("button");
+button.textContent="reset";
+button.addEventListener("click",()=>{
+        Camera.position= [365,-70,-400],
+        Camera.orientation=[0,0,0];
+        Camera.zoom =1;
+        drawAllCubes();
 
-
-
+});
+document.body.appendChild(button);
 
 
 

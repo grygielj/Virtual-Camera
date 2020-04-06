@@ -1,0 +1,16 @@
+canvas{
+    border:2px solid black;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+button{
+    position:fixed;
+    top:5%;
+    right: 5%;
+    background: red;
+    border:none;
+    font-weight: bold;
+    color:white;
+}

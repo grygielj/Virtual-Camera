@@ -18,11 +18,13 @@ Camera.display=[canvas.width,canvas.height];
 
 
 const drawLine = (point1,point2)=>{
-    ctx.moveTo(point1.x1,point1.y1);
-    ctx.lineTo(point2.x1,point2.y1);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.closePath();
+    if(point1.z1 >0 && point2.z1>0) {
+        ctx.moveTo(point1.x1, point1.y1);
+        ctx.lineTo(point2.x1, point2.y1);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.closePath();
+    }
 };
 const drawCube=(cube)=> {
     drawLine(cube[0], cube[1]);
@@ -91,6 +93,12 @@ window.addEventListener('keydown',(e)=>{
     }
     if(e.keyCode===90){
         Camera.orientation[2]-=0.01;
+    }
+    if(e.keyCode===187){
+        Camera.zoom+=0.01;
+    }
+    if(e.keyCode===189){
+        Camera.zoom -=0.01;
     }
 
     drawAllCubes();

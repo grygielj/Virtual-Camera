@@ -59,22 +59,22 @@ drawAllCubes();
 //control
 window.addEventListener('keydown',(e)=>{
     if(e.keyCode===38){
-        Camera.position[2]+=5;
+        Camera.position[2]+=0.1;
     }
     if(e.keyCode===40){
-        Camera.position[2]-=5;
+        Camera.position[2]-=0.1;
     }
     if(e.keyCode===39){
-        Camera.position[0]+=5;
+        Camera.position[0]+=0.1;
     }
     if(e.keyCode===37){
-        Camera.position[0]-=5;
+        Camera.position[0]-=0.1;
     }
     if(e.keyCode===33){
-        Camera.position[1]-=5;
+        Camera.position[1]-=0.1;
     }
     if(e.keyCode===34){
-        Camera.position[1]+=5;
+        Camera.position[1]+=0.1;
     }
     if(e.keyCode===87){
         Camera.orientation[0]+=0.01;
@@ -100,6 +100,9 @@ window.addEventListener('keydown',(e)=>{
     if(e.keyCode===189){
         Camera.zoom -=0.01;
     }
+    if(e.keyCode===32){
+        console.log(Camera.position)
+    }
 
     drawAllCubes();
 });
@@ -107,7 +110,7 @@ window.addEventListener('keydown',(e)=>{
 const button = document.createElement("button");
 button.textContent="reset";
 button.addEventListener("click",()=>{
-        Camera.position= [365,-70,-400],
+        Camera.position= [15,-3,-15];
         Camera.orientation=[0,0,0];
         Camera.zoom =1;
         drawAllCubes();

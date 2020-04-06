@@ -1,5 +1,5 @@
 const Camera={
-    position:[365,-70,-400],
+    position:[15,-3,-15],
     orientation:[0,0,0],
     zoom:1,
     display:[],

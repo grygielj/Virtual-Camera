@@ -9,7 +9,8 @@ button{
     position:fixed;
     top:5%;
     right: 5%;
-    background: red;
+    background: black;
+    padding: 10px;
     border:none;
     font-weight: bold;
     color:white;

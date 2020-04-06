@@ -11,8 +11,8 @@ dom.watch();
 //setup canvas
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth ;
+canvas.height = window.innerHeight ;
 ctx.strokeStyle="rgb(0,0,0)";
 ctx.lineWidth = 1;
 ctx.lineCap ='round';
@@ -117,57 +117,29 @@ window.addEventListener('keydown',(e)=>{
 });
 
 //reset button
-const button = document.createElement("button");
-button.textContent="RESET";
-button.classList.add('reset');
-button.addEventListener("click",()=>{
-        Camera.position= [0,0,-15];
+const resetBtn = document.querySelector('.reset');
+console.log(resetBtn);
+resetBtn.addEventListener("click",()=>{
+        console.log("hello world")
+        Camera.position= [0,0,-10];
         Camera.orientation=[0,0,0];
         Camera.zoom =1;
         drawAllCubes();
 
 });
-document.body.appendChild(button);
 
-
-const infoBtn = document.createElement("button");
-infoBtn.innerHTML=`</kbd><i class="fas fa-info-circle"></i>`;
-infoBtn.classList.add('infoBtn');
-document.body.appendChild(infoBtn);
-
-const div = document.createElement('div');
-div.innerHTML=`
-    <div class="content">
-        <div class="close"></div>
-        <h1> Info</h1>
-        <p> This is simulator of virtual camera. You can move around!</p>
-        <br/>
-        <p> Forward / Backward <kbd>↑</kbd> / <kbd>↓</kbd></p>
-        <p> Left / Right <kbd>←</kbd> / <kbd>→</kbd></p>
-        <p> Up / Down <kbd> PgUp </kbd> / <kbd> PgDown </kbd></p>
-        <p> rotations <kbd>w</kbd> <kbd>a</kbd> <kbd>s</kbd> <kbd>d</kbd> <kbd>z</kbd> <kbd>x</kbd></p>
-        <p> zoom <kbd>n</kbd> <kbd>m</kbd></p>
-
-
-  </div>
-`;
-div.classList.add('modal');
-document.body.appendChild(div);
-
+const infoBtn = document.querySelector(".infoBtn");
+console.log(infoBtn);
+const modal = document.querySelector(".modal");
 const closeBtn = document.querySelector(".close");
 
 closeBtn.addEventListener('click',()=>{
-    div.classList.remove("open");
+    modal.classList.remove("open");
 })
 infoBtn.addEventListener('click',()=>{
-    div.classList.add("open");
-})
+    modal.classList.add("open");
+});
 
-const styles = document.createElement("link");
-styles.type="text/css";
-styles.rel="stylesheet";
-styles.href = "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,300;1,500&display=swap";
-document.head.appendChild(styles);
 
 
 

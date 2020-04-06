@@ -1,9 +1,9 @@
 import { create, all } from 'mathjs'
 import Camera from './Camera'
 
-
-const config = { }
-const math = create(all, config)
+//configuration math.js
+const config = { };
+const math = create(all, config);
 
 export default class Point{
 
@@ -20,10 +20,10 @@ export default class Point{
      convertPointTo2d = ()=>{
         const sinFi = Camera.orientation.map(value=>{
             return Math.sin(value);
-        })
+        });
         const cosFi = Camera.orientation.map(value=>{
             return Math.cos(value);
-        })
+        });
 
         const m1 = math.matrix([[1,0,0],
                               [0,cosFi[0],sinFi[0]],

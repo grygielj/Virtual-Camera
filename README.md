@@ -31,5 +31,5 @@ yarn run dev
 * ruch do przodu/tyłu &uarr; / &darr;
 * ruch na prawo/lewo  &rarr; / &larr;
 * ruch do góry/dołu  <kbd>PageUp</kbd> / <kbd>PageUp</kbd>
-* obroty względem osi x   <kbd>z</kbd> / <kbd>x</kbd> || <kbd>w</kbd> / <kbd>s</kbd> || <kbd>a</kbd> / <kbd>d</kbd> 
-
+* obroty względem osi   <kbd>z</kbd> / <kbd>x</kbd> || <kbd>w</kbd> / <kbd>s</kbd> || <kbd>a</kbd> / <kbd>d</kbd> 
+* zoom +/-  <kbd>n</kbd> / <kbd>m</kbd>

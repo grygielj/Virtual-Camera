@@ -47,8 +47,8 @@ export default class Point{
         });
 
 
-        this.x1 = pointPosition3D[0] * (Camera.display[1]/2) /pointPosition3D[2] * Camera.zoom + Camera.display[0]/2;
-        this.y1 = pointPosition3D[1] * (Camera.display[1]/2) /pointPosition3D[2] * Camera.zoom  + Camera.display[1]/2;
+        this.x1 = Math.round(pointPosition3D[0] * (Camera.display[1]/2) /pointPosition3D[2] * Camera.zoom + Camera.display[0]/2);
+        this.y1 = Math.round(pointPosition3D[1] * (Camera.display[1]/2) /pointPosition3D[2] * Camera.zoom  + Camera.display[1]/2);
         this.z1 = pointPosition3D[2];
 
     }

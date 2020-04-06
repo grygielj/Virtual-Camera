@@ -7,8 +7,10 @@ const canvas = document.createElement("canvas");
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth*0.8;
 canvas.height = window.innerHeight*0.8;
-ctx.strokeStyle="rgb(255,0,0)";
+ctx.strokeStyle="rgb(0,0,0)";
 ctx.lineWidth = 1;
+ctx.lineCap ='round';
+ctx.translate(0.5,0.5);
 document.body.appendChild(canvas);
 
 //setup camera
@@ -19,6 +21,8 @@ const drawLine = (point1,point2)=>{
     ctx.moveTo(point1.x1,point1.y1);
     ctx.lineTo(point2.x1,point2.y1);
     ctx.stroke();
+    ctx.beginPath();
+    ctx.closePath();
 };
 const drawAllLines=(cube)=> {
     drawLine(cube[0], cube[1]);
@@ -42,6 +46,7 @@ cubes.forEach(cube=>{
     });
     drawAllLines(cube);
 });
+ctx.stroke();
 
 
 

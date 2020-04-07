@@ -1,13 +1,13 @@
 import "./index.css";
 import Camera from "./Camera";
 import cubes from "./Cubes";
-import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faCheck } from "@fortawesome/free-solid-svg-icons/faCheck";
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
 
+library.add(fas, far)
 
-library.add(faCheck);
-dom.watch();
-
+dom.i2svg()
 //setup canvas
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext('2d');
@@ -116,11 +116,10 @@ window.addEventListener('keydown',(e)=>{
     drawAllCubes();
 });
 
-//reset button
+//reset
 const resetBtn = document.querySelector('.reset');
 console.log(resetBtn);
 resetBtn.addEventListener("click",()=>{
-        console.log("hello world")
         Camera.position= [0,0,-10];
         Camera.orientation=[0,0,0];
         Camera.zoom =1;
@@ -129,16 +128,27 @@ resetBtn.addEventListener("click",()=>{
 });
 
 const infoBtn = document.querySelector(".infoBtn");
-console.log(infoBtn);
+const settingsBtn = document.querySelector(".settingsBtn");
 const modal = document.querySelector(".modal");
-const closeBtn = document.querySelector(".close");
+const settingsModal = document.querySelector(".settings__modal");
+const closeBtn = document.querySelectorAll(".close");
 
-closeBtn.addEventListener('click',()=>{
-    modal.classList.remove("open");
-})
+settingsBtn.addEventListener('click',()=>{
+    settingsModal.classList.add("open");
+});
+
+closeBtn.forEach((close)=> {
+    close.addEventListener('click', () => {
+        modal.classList.remove("open");
+        settingsModal.classList.remove("open");
+    })
+});
+
 infoBtn.addEventListener('click',()=>{
     modal.classList.add("open");
 });
+
+
 
 
 

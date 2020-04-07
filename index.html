@@ -6,10 +6,12 @@
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Virtual camera</title>
+	<link href="./node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" rel="stylesheet">
 </head>
 <body>
 <button class="reset">reset</button>
 <button class="infoBtn"><i class="fas fa-info"></i></button>
+<button class="settingsBtn"><i class="fas fa-cog"></i></button>
 <div class="modal">
 	<div class="content">
 		<div class="close"></div>
@@ -21,6 +23,14 @@
 		<p> Up / Down <kbd> PgUp </kbd> / <kbd> PgDown </kbd></p>
 		<p> rotations <kbd>w</kbd> <kbd>a</kbd> <kbd>s</kbd> <kbd>d</kbd> <kbd>z</kbd> <kbd>x</kbd></p>
 		<p> zoom <kbd>n</kbd> <kbd>m</kbd></p>
+	</div>
+</div>
+<div class="settings__modal">
+	<div class="content">
+		<div class="close"></div>
+		<h1> Settings</h1>
+		<p> This is simulator of virtual camera. You can move around!</p>
+
 	</div>
 </div>
 

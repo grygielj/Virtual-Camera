@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = ({mode})=>{
     return {
@@ -36,7 +37,9 @@ module.exports = ({mode})=>{
             ]
         },
 
-        plugins: [new HtmlWebpackPlugin({template: __dirname+"/index.html", inject: 'body'})],
+        plugins: [new HtmlWebpackPlugin({template: __dirname+"/index.html", inject: 'body'}),new CopyWebpackPlugin([
+            { from: './node_modules/@fortawesome/fontawesome-free/webfonts', to: './webfonts'}
+        ])],
 
     }
 }

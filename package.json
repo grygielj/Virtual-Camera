@@ -8,7 +8,7 @@
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server",
     "prod": "npm run webpack -- --env.mode production",
-    "dev": "npm run webpack-dev-server -- --env.mode development"
+    "build": "npm run webpack-dev-server -- --env.mode development"
   },
   "license": "MIT",
   "dependencies": {

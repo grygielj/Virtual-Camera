@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = ({mode})=>{
     return {
@@ -12,6 +12,9 @@ module.exports = ({mode})=>{
         devServer: {
             contentBase: path.join(__dirname, 'dist'),
             watchContentBase: true
+        },
+        optimization: {
+            minimize: true
         },
         module:{
             rules:[

@@ -23,7 +23,7 @@ yarn instal
 ```
 ##### Uruchomienie 
 ```
-yarn run build
+yarn run dev
 ```
 
 ### Sterowanie

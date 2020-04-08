@@ -19,7 +19,7 @@ W celu ułatwienia obliczeń macierzowych skorzystałem z biblioteki math.js .
 ### Uruchomienie projektu
 
 
-virtual-webcam-app.netlify.com
+http://virtual-webcam-app.netlify.com
 
 #### Lokalnie
 ###### Instalacja

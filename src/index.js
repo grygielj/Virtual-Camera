@@ -5,9 +5,14 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 
-library.add(fas, far)
+let BACKGROUND_COLOR ="#ffffff";
+let COLOR = "#000000";
+let SPEED = 1;
 
-dom.i2svg()
+//setup fontawesome
+library.add(fas, far);
+dom.i2svg();
+
 //setup canvas
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext('2d');
@@ -26,11 +31,12 @@ window.addEventListener('resize',()=>{
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     Camera.display=[canvas.width,canvas.height];
-    drawAllCubes()
+    drawAllCubes();
 });
 
 const drawLine = (point1,point2)=>{
     if(point1.z1 >0 && point2.z1>0) {
+        ctx.strokeStyle=COLOR;
         ctx.moveTo(point1.x1, point1.y1);
         ctx.lineTo(point2.x1, point2.y1);
         ctx.stroke();
@@ -53,9 +59,11 @@ const drawCube=(cube)=> {
     drawLine(cube[6], cube[7]);
 };
 
-
 const drawAllCubes = ()=>{
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = `${BACKGROUND_COLOR}`;
+    ctx.rect(0,0, canvas.width, canvas.height);
+    ctx.fill();
     cubes.forEach(cube=>{
         cube.forEach(point=>{
             point.convertPointTo2d();
@@ -64,53 +72,53 @@ const drawAllCubes = ()=>{
     });
 };
 
-drawAllCubes();
+drawAllCubes("#ffffff","#000000");
 
 
 //control
 window.addEventListener('keydown',(e)=>{
     switch (e.keyCode) {
         case 39:
-            Camera.position[0]+=0.1;
+            Camera.position[0]+=0.1*SPEED;
             break;
         case 37:
-            Camera.position[0]-=0.1;
+            Camera.position[0]-=0.1*SPEED;
             break;
         case 33:
-            Camera.position[1]-=0.1;
+            Camera.position[1]-=0.1*SPEED;
             break;
         case 34:
-            Camera.position[1]+=0.1;
+            Camera.position[1]+=0.1*SPEED;
             break;
         case 38:
-            Camera.position[2]+=0.1;
+            Camera.position[2]+=0.1*SPEED;
             break;
         case 40:
-            Camera.position[2]-=0.1;
+            Camera.position[2]-=0.1*SPEED;
             break;
         case 87:
-            Camera.orientation[0]+=0.01;
+            Camera.orientation[0]+=0.01*SPEED;
             break;
         case 83:
-            Camera.orientation[0]-=0.01;
+            Camera.orientation[0]-=0.01*SPEED;
             break;
         case 68:
-            Camera.orientation[1]+=0.01;
+            Camera.orientation[1]+=0.01*SPEED;
             break;
         case 65:
-            Camera.orientation[1]-=0.01;
+            Camera.orientation[1]-=0.01*SPEED;
             break;
         case 88:
-            Camera.orientation[2]+=0.01;
+            Camera.orientation[2]+=0.01*SPEED;
             break;
         case 90:
-            Camera.orientation[2]-=0.01;
+            Camera.orientation[2]-=0.01*SPEED;
             break;
         case 77:
-            Camera.zoom+=0.01;
+            Camera.zoom+=0.01*SPEED;
             break;
         case 78:
-            Camera.zoom -=0.01;
+            Camera.zoom -=0.01*SPEED;
             break;
     }
     drawAllCubes();
@@ -118,13 +126,13 @@ window.addEventListener('keydown',(e)=>{
 
 //reset
 const resetBtn = document.querySelector('.reset');
-console.log(resetBtn);
 resetBtn.addEventListener("click",()=>{
         Camera.position= [0,0,-10];
         Camera.orientation=[0,0,0];
         Camera.zoom =1;
+        BACKGROUND_COLOR="#ffffff";
+        COLOR="#000000"
         drawAllCubes();
-
 });
 
 const infoBtn = document.querySelector(".infoBtn");
@@ -148,9 +156,22 @@ infoBtn.addEventListener('click',()=>{
     modal.classList.add("open");
 });
 
+const backgroundColorPicker = document.querySelector("#backgroundColor");
+backgroundColorPicker.addEventListener('change',()=>{
+    BACKGROUND_COLOR = backgroundColorPicker.value;
+    drawAllCubes();
+});
 
+const lineColorPicker = document.querySelector("#lineColor");
+lineColorPicker.addEventListener("change",()=>{
+    COLOR = lineColorPicker.value;
+    drawAllCubes()
+});
 
-
+const speed = document.querySelector("#speed");
+speed.addEventListener("change",()=>{
+    SPEED = speed.value;
+})
 
 
 

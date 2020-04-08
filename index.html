@@ -28,8 +28,21 @@
 	<div class="content">
 		<div class="close"></div>
 		<h1> Settings</h1>
-		<p> This is simulator of virtual camera. You can move around!</p>
+		<div class="settings__wrapper">
+			<div class="settings__item">
+				<label for="backgroundColor">background color</label>
+				<input  id="backgroundColor" type="color" value="#ffffff"/>
+			</div>
+			<div class="settings__item">
+				<label for="lineColor">line color</label>
+				<input id="lineColor" type="color"/>
+			</div>
+			<div class="settings__item">
+				<label for="speed">speed of moving</label>
+				<input id="speed" type="range" min="1" max="6" value="1"/>
+			</div>
 
+		</div>
 	</div>
 </div>
 

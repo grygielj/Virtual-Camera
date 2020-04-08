@@ -17,11 +17,16 @@ Do wyświetlania elementów graficznych został użyty element języka HTML5 - c
 W celu ułatwienia obliczeń macierzowych skorzystałem z biblioteki math.js . 
 
 ### Uruchomienie projektu
-##### Instalacja
+
+
+https://mystifying-fermat-9ee384.netlify.com
+
+####Lokalnie
+###### Instalacja
 ```
 yarn instal  
 ```
-##### Uruchomienie 
+###### Uruchomienie 
 ```
 yarn run dev
 ```
@@ -33,3 +38,5 @@ yarn run dev
 * ruch do góry/dołu  <kbd>PageUp</kbd> / <kbd>PageUp</kbd>
 * obroty względem osi   <kbd>z</kbd> / <kbd>x</kbd> || <kbd>w</kbd> / <kbd>s</kbd> || <kbd>a</kbd> / <kbd>d</kbd> 
 * zoom +/-  <kbd>n</kbd> / <kbd>m</kbd>
+
+

@@ -21,7 +21,7 @@ W celu ułatwienia obliczeń macierzowych skorzystałem z biblioteki math.js .
 
 https://mystifying-fermat-9ee384.netlify.com
 
-####Lokalnie
+#### Lokalnie
 ###### Instalacja
 ```
 yarn instal  

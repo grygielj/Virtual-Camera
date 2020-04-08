@@ -37,9 +37,7 @@ module.exports = ({mode})=>{
             ]
         },
 
-        plugins: [new HtmlWebpackPlugin({template: __dirname+"/index.html", inject: 'body'}),new CopyWebpackPlugin([
-            { from: './node_modules/@fortawesome/fontawesome-free/webfonts', to: './webfonts'}
-        ])],
+        plugins: [new HtmlWebpackPlugin({template: __dirname+"/index.html", inject: 'body'})],
 
     }
 }

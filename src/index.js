@@ -79,10 +79,12 @@ drawAllCubes("#ffffff","#000000");
 window.addEventListener('keydown',(e)=>{
     switch (e.keyCode) {
         case 39:
-            Camera.position[0]+=0.1*SPEED;
+            Camera.position[2]+=0.1*SPEED*Math.cos((Camera.orientation[1]+1.57));
+            Camera.position[0]+=0.1*SPEED*Math.sin((Camera.orientation[1]+1.57));
             break;
         case 37:
-            Camera.position[0]-=0.1*SPEED;
+            Camera.position[2]-=0.1*SPEED*Math.cos(Camera.orientation[1]+1.57);
+            Camera.position[0]-=0.1*SPEED*Math.sin(Camera.orientation[1]+1.57);
             break;
         case 33:
             Camera.position[1]-=0.1*SPEED;
@@ -91,10 +93,13 @@ window.addEventListener('keydown',(e)=>{
             Camera.position[1]+=0.1*SPEED;
             break;
         case 38:
-            Camera.position[2]+=0.1*SPEED;
+            console.log(Camera.orientation[1])
+            Camera.position[2]+=0.1*SPEED*Math.cos(Camera.orientation[1]);
+            Camera.position[0]+=0.1*SPEED*Math.sin(Camera.orientation[1]);
             break;
         case 40:
-            Camera.position[2]-=0.1*SPEED;
+            Camera.position[2]-=0.1*SPEED*Math.cos(Camera.orientation[1]);
+            Camera.position[0]-=0.1*SPEED*Math.sin(Camera.orientation[1]);
             break;
         case 87:
             Camera.orientation[0]+=0.01*SPEED;
@@ -104,6 +109,7 @@ window.addEventListener('keydown',(e)=>{
             break;
         case 68:
             Camera.orientation[1]+=0.01*SPEED;
+            console.log(Camera.position[1])
             break;
         case 65:
             Camera.orientation[1]-=0.01*SPEED;
@@ -120,6 +126,10 @@ window.addEventListener('keydown',(e)=>{
         case 78:
             Camera.zoom -=0.01*SPEED;
             break;
+        case 32:
+            console.log(Camera.position);
+            break;
+
     }
     drawAllCubes();
 });
